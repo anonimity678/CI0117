@@ -7,7 +7,7 @@ int main( int argc, char * argv[] ) {
    char a[512];
 
    memset( a, 0, 512 );
-   s.Connect( (char *) "::1", (char *) "http" );
+   s.Connect( (char *) "fe80::2e19:fcbc:2429:a19a%enp0s3", (char *) "9876" );
    s.Write(  (char *) "GET / HTTP/1.1\r\nhost: redes.ecci\r\n\r\n", 36 );
    s.Read( a, 512 );
    printf( "%s\n", a);

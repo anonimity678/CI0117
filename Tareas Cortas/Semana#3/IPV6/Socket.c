@@ -66,7 +66,7 @@ int Socket::Connect( char *host, char *service ) {
     struct addrinfo hints, *result, *rp;
 
     memset(&hints, 0, sizeof(struct addrinfo));
-    hints.ai_family = AF_INET6;   
+    hints.ai_family = AF_UNSPEC;   
     hints.ai_socktype = SOCK_STREAM; 
     hints.ai_flags = 0;
     hints.ai_protocol = 0;          
@@ -75,14 +75,14 @@ int Socket::Connect( char *host, char *service ) {
 
     for ( rp = result; rp; rp = rp->ai_next ) {
         st = connect( id, rp->ai_addr, rp->ai_addrlen );
-        if ( -1 == st )
+        if ( -1 == st ){
            printf("Error conectando");
 	   Close();
 	   exit(0);
+	}
     }
 
     freeaddrinfo(result);
-
     return st;
 }
 
@@ -95,7 +95,7 @@ int Socket::Read( char *text, int len ) {
 		Close();
 		exit(0);
 	}
-return retorno;
+	return retorno;
 }
 
 
@@ -107,5 +107,5 @@ int Socket::Write( char *text, int len) {
 		Close();
 		exit(0);
 	}
-return retorno;
+	return retorno;
 }
