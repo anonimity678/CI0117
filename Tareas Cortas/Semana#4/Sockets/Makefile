@@ -1,4 +1,4 @@
-cliente: MirrorClientTest.o Socket.o servidor
+cliente: MirrorClientTest.o Socket.o
 	g++ -o cliente MirrorClientTest.o Socket.o
 servidor: MirrorServerTest.o Socket.o
 	g++ -o servidor MirrorServerTest.o Socket.o
