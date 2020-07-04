@@ -1,0 +1,2 @@
+Ejemplo ejecución con 2 procesos:
+mpiexec -n 2 ./programa
